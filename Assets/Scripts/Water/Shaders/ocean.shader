@@ -173,9 +173,11 @@ Shader "Ocean"
 				p = float3(5.0,23.0,1.0);
 				float t = 0; 
 				float tm = 0.0;
-				float tx = 1000.0;    
+				float tx = 2000.0;    
 				float hx = map(ori + dir * tx);
+				
 				if(hx > 0.0) return tx;
+				
 				float hm = map(ori + dir * tm);    
 				float tmid = 0.0;
 				for(int i = 0; i < num_steps; i++) 
@@ -216,13 +218,17 @@ Shader "Ocean"
 			{
 				float3 worldPosition = _CameraWS;
 				float3 viewDirection = normalize(i.ray);
+
+				float horizonAttenuation = smoothstep(0, -0.05, viewDirection.y);
+				horizonAttenuation = pow(horizonAttenuation, 0.3);
+
 				float3 p = float3(5.0,23.0,1.0);
 				float result;
 				float depth = LinearEyeDepth(tex2D(_CameraDepthTexture,i.uv).r)*length(i.ray);
-				float3 dist = heightMapTracing(worldPosition,viewDirection,depth,p,result) - worldPosition;
+				float3 dist = heightMapTracing(worldPosition,viewDirection,depth,p,result);
 				float3 n = getNormal(p, dot(dist,dist) * epsilon_nrm);
 				float3 light = normalize (float3 (100.0,100.0,100.0));
-				float4 volume= float4 (lerp (getSkyColor(viewDirection), getSeaColor(p,n,light,viewDirection,dist,result), pow(smoothstep(0.0,-0.05,viewDirection.y),0.3)));
+				float4 volume = float4 (lerp (getSkyColor(viewDirection), getSeaColor(p,n,light,viewDirection,dist,result), horizonAttenuation));
 				float4 c = tex2D(_MainTex,i.uv);
 				return lerp(c,volume,volume.w);
 			}
