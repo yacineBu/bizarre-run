@@ -70,10 +70,10 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _SeaChoppy: 4
-    - _SeaFreq: 0.16
-    - _SeaHeight: 0.6
-    - _SeaSpeed: 0.8
+    - _SeaChoppy: 3.5
+    - _SeaFreq: 0.177
+    - _SeaHeight: 0.571
+    - _SeaSpeed: 1.08
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1

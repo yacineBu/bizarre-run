@@ -173,7 +173,7 @@ Shader "Ocean"
 				p = float3(5.0,23.0,1.0);
 				float t = 0; 
 				float tm = 0.0;
-				float tx = 2500.0;    
+				float tx = 17500.0;
 				float hx = map(ori + dir * tx);
 				
 				if(hx > 0.0) return tx;
@@ -214,7 +214,7 @@ Shader "Ocean"
 				return vs;
 			}
 			
-			float4 PSMain (SHADERDATA i) : SV_Target
+			float4 PSMain(SHADERDATA i) : SV_Target
 			{
 				float3 worldPosition = _CameraWS;
 				float3 viewDirection = normalize(i.ray);

@@ -33,6 +33,7 @@ public class TerrainGenerator : MonoBehaviour {
     // Internal
     float[] map;
     Mesh mesh;
+    Terrain t;
     int mapSizeWithBorder;
 
     MeshRenderer meshRenderer;
@@ -47,6 +48,9 @@ public class TerrainGenerator : MonoBehaviour {
         var destMesh = meshSimplifier.ToMesh ();
         mesh = destMesh;
         meshFilter.sharedMesh = mesh;
+
+        t = new Terrain ();
+        t.name = "nouveau terrain";
     }
 
     public void GenerateHeightMap () {
