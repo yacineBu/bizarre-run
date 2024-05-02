@@ -30,7 +30,14 @@ namespace MFlight.Demo
         void Update()
         {
             timeLeftBeforeWind -= Time.deltaTime;
-            if (timeLeftBeforeWind < 0)
+
+            if (timeLeftBeforeWind < 1.0f && !isWindSoundEffect)
+            {
+                StartCoroutine(AudioFade.FadeIn(soundEffect, 1.0f));
+                isWindSoundEffect = !isWindSoundEffect;
+            }
+
+            if (timeLeftBeforeWind < 0.0f)
             {
                 if (!isWindCalculated)
                 {
@@ -38,12 +45,6 @@ namespace MFlight.Demo
                     CalculateDirection();
                     CalculateRotation();
                     isWindCalculated = !isWindCalculated;
-                }
-
-                if(!isWindSoundEffect)
-                {
-                    StartCoroutine(AudioFade.FadeIn(soundEffect, 0.5f));
-                    isWindSoundEffect = !isWindSoundEffect;
                 }
 
                 if (timeLeftForWind >= 0)
