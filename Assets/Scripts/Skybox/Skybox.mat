@@ -93,7 +93,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _GroundColor: {r: 0.14150941, g: 0.12882696, b: 0.1311033, a: 0}
-    - _MainLightDirection: {r: -0.920899, g: -0.38372642, b: -0.06854987, a: 0}
+    - _MainLightDirection: {r: 0.044149265, g: -0.9960941, b: -0.076468885, a: 0}
     - _MoonColor: {r: 0.83624935, g: 0.83624935, b: 0.83624935, a: 0}
     - _NightSkyColor: {r: 0.002402986, g: 0.015795639, b: 0.16981131, a: 0}
     - _SkyColor: {r: 0.5882353, g: 0.8016648, b: 1, a: 1}
