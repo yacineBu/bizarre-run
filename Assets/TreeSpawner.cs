@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class TreeSpawner : MonoBehaviour
@@ -6,10 +8,24 @@ public class TreeSpawner : MonoBehaviour
     public MeshRenderer terrainMeshRenderer;
     public int numberOfTrees = 100;
     public float minDistanceToOtherTrees = 10f;
+    public HudStatistics stats;
+    int currentTour = 0;
 
     void Start()
     {
+        ResetTreeScale();
         GenerateForest();
+    }
+
+    private void Update()
+    {
+        if(currentTour != stats.tour)
+        {
+            currentTour = stats.tour;
+            RemoveAllTreePrefabs();
+            IncreaseTreeScale();
+            GenerateForest();
+        }
     }
 
     void GenerateForest()
@@ -51,12 +67,37 @@ public class TreeSpawner : MonoBehaviour
     void InstantiateTreeAtPosition(GameObject treePrefab, Vector3 position)
     {
         // Vérifie si la position est suffisamment éloignée des autres arbres
-        GameObject tree = Instantiate(treePrefab, position, Quaternion.Euler(-90f, 0f, 0f));
+        GameObject tree = Instantiate(treePrefab, position, Quaternion.Euler(0f, 0f, 0f));
     }
 
-    bool IsPositionValid(Vector3 position)
+
+    void RemoveAllTreePrefabs()
     {
-        Collider[] colliders = Physics.OverlapSphere(position, minDistanceToOtherTrees);
-        return colliders.Length == 0;
+        GameObject[] allTrees = GameObject.FindGameObjectsWithTag("Tree");
+
+        foreach (GameObject tree in allTrees)
+        {
+            Destroy(tree); // Détruit l'arbre
+        }
+    }
+
+    void IncreaseTreeScale()
+    {
+        // Augmente l'échelle en Y du prefab de l'arbre
+        Vector3 newScale = treePrefab.transform.localScale;
+        newScale.y += 500f; // Augmentation de l'échelle en Y
+        newScale.x += 20f; // Augmentation de l'échelle en Y
+        newScale.z += 20f; // Augmentation de l'échelle en Y
+        treePrefab.transform.localScale = newScale;
+    }
+
+    void ResetTreeScale()
+    {
+        // Augmente l'échelle en Y du prefab de l'arbre
+        Vector3 newScale = treePrefab.transform.localScale;
+        newScale.y = 500f; // Augmentation de l'échelle en Y
+        newScale.x = 20f; // Augmentation de l'échelle en Y
+        newScale.z = 20f; // Augmentation de l'échelle en Y
+        treePrefab.transform.localScale = newScale;
     }
 }

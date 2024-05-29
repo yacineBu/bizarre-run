@@ -10,8 +10,12 @@ public class HudStatistics : MonoBehaviour
     public Transform target; // L'objet dont la rotation est utilisée comme référence pour la boussole
     public TMP_Text directionText; // Texte affichant la direction actuelle
     public TextMeshProUGUI timerText;
+    public TMP_Text pieces; // Texte affichant la direction actuelle
+    public TMP_Text tours; // Texte affichant la direction actuelle
+    public ScoreManager scoreManager;
     private float elapsedTime = 0f;
     private bool isTimerRunning = false;
+    public int tour = 0; // Variable pour suivre les tours
 
     void Start()
     {
@@ -25,8 +29,17 @@ public class HudStatistics : MonoBehaviour
         {
             elapsedTime += Time.deltaTime;
             UpdateTimerText();
+
+            // Vérifie si 30 secondes se sont écoulées
+            if (elapsedTime >= 30 * (tour + 1))
+            {
+                tour++;
+                Debug.Log("Tour: " + tour); // Affiche le nombre de tours dans la console
+            }
         }
+        tours.text = tour.ToString();
         altitude.text = ((int)plane.transform.position.y).ToString() + " m";
+        pieces.text = scoreManager.Score.ToString();
 
         // Vérifie si la cible est définie
         if (target != null)
@@ -55,6 +68,7 @@ public class HudStatistics : MonoBehaviour
     {
         elapsedTime = 0f;
         isTimerRunning = true;
+        tour = 0; // Réinitialise le compteur de tours au début
     }
 
     void UpdateTimerText()
