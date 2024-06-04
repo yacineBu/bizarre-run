@@ -80,9 +80,9 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _StarHeight: 153.6
-    - _StarIntensity: 239.2
-    - _StarPower: 65.3
+    - _StarHeight: 143.1
+    - _StarIntensity: 540.2
+    - _StarPower: 249.7
     - _SunSize: 0.2
     - _UVSec: 0
     - _ZWrite: 1
@@ -93,7 +93,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _GroundColor: {r: 0.14150941, g: 0.12882696, b: 0.1311033, a: 0}
-    - _MainLightDirection: {r: -0.920899, g: -0.38372642, b: -0.06854987, a: 0}
+    - _MainLightDirection: {r: -0.3213938, g: -0.76604444, b: 0.5566705, a: 0}
     - _MoonColor: {r: 0.83624935, g: 0.83624935, b: 0.83624935, a: 0}
     - _NightSkyColor: {r: 0.002402986, g: 0.015795639, b: 0.16981131, a: 0}
     - _SkyColor: {r: 0.5882353, g: 0.8016648, b: 1, a: 1}
