@@ -1,5 +1,4 @@
-﻿//based on https://github.com/Flafla2/Generic-Raymarch-Unity
-using UnityEngine;
+﻿using UnityEngine;
 [ExecuteInEditMode]
 public class ocean : MonoBehaviour
 {

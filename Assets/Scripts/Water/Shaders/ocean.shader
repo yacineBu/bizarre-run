@@ -1,7 +1,4 @@
-﻿//Original source https://www.shadertoy.com/view/Ms2SD1
-//translated from GLSL to CG by Przemyslaw Zaworski
-
-Shader "Ocean"
+﻿Shader "Ocean"
 {
 	Properties
 	{
