@@ -37,7 +37,7 @@ public class HudStatistics : MonoBehaviour
                 Debug.Log("Tour: " + tour); // Affiche le nombre de tours dans la console
             }
         }
-        tours.text = tour.ToString();
+        tours.text = "Tour : " + tour.ToString();
         altitude.text = ((int)plane.transform.position.y).ToString() + " m";
         pieces.text = scoreManager.Score.ToString();
 

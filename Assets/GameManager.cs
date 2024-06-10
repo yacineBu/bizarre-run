@@ -9,10 +9,17 @@ public class GameManager : MonoBehaviour
     public FadeInCanvasGroup canvasTransition;
     public CollisionDetector collisionDetector;
     public GameObject plane;
+    public bool alive;
+
+    private void Start()
+    {
+        alive = true;
+    }
     void Update()
     {
         if (collisionDetector.Alive == false)
         {
+            alive = false;
             canvas.SetActive(true);
             canvasTransition.StartFadeIn();
             plane.SetActive(false);
