@@ -32,7 +32,7 @@ public class DayNightCycle : MonoBehaviour
         directionalLight.transform.eulerAngles = new Vector3(initialRotationX, 0, 0);
 
         rainSystem.Stop();
-        InvokeRepeating("ManageRain", 0, 60.0f); // Vérifie la pluie toutes les minutes
+        InvokeRepeating("ManageRain", 0, 30.0f); // Vérifie la pluie toutes les minutes
 
     }
 

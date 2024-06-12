@@ -353,4 +353,4 @@ QualitySettings:
   m_PerPlatformDefaultQuality:
     Android: 0
     Server: 6
-    Standalone: 6
+    Standalone: 1
